@@ -1,0 +1,60 @@
+#:import hex kivy.utils.get_color_from_hex
+#:import OpenUrl webbrowser.open
+
+<LoginScreen>:
+    MDFloatLayout:
+        md_bg_color:hex('#FFFFFF')
+
+        MDBoxLayout:
+            size_hint_y:.3
+            md_bg_color:hex('#FFFFFF')
+            pos_hint:{'top':.9}
+            Image:
+                source:'/home/mohamed/telebot-app/images/bot.png'
+
+        MDFloatLayout:
+            size_hint_y:.55
+            radius:dp(40),dp(40),dp(0),dp(0)
+            md_bg_color:hex('#35ACE1')
+            MDTextField:
+                id:token
+                pos_hint:{'center_x':.5,'center_y':.7}
+                size_hint_x:.8
+                hint_text: "bot token    "
+                mode: "rectangle"
+                color_mode:'custom'
+                line_color_focus:1,1,1,1
+                current_hint_text_color:1,1,1,1
+
+            MDBoxLayout:
+                spacing:dp(10)
+                pos_hint:{'center_x':.31,'center_y':.55}
+                adaptive_height: True
+                adaptive_width: True
+                MDRaisedButton:
+                    text: "Login"
+                    on_release:
+                        print(token.text)
+
+                MDRaisedButton:
+                    text: "Sign in"
+                    on_release:
+                        OpenUrl('https://t.me/BotFather')
+
+            MDBoxLayout:
+                spacing:dp(40)
+                pos_hint:{'center_x':.5,'center_y':.1}
+                adaptive_height: True
+                adaptive_width: True
+                MDIconButton:
+                    icon:'youtube'
+                    theme_text_color:'Custom'
+                    text_color:1,1,1,1
+                MDIconButton:
+                    icon:'instagram'
+                    theme_text_color:'Custom'
+                    text_color:1,1,1,1
+                MDIconButton:
+                    icon:'telegram'
+                    theme_text_color:'Custom'
+                    text_color:1,1,1,1
