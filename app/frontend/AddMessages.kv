@@ -1,0 +1,53 @@
+#:import hex kivy.utils.get_color_from_hex
+#:import toast kivymd.toast.toast
+
+<AddMessages>:
+    auto_dismiss:False
+    background:'app/images/background_none.png'
+    MDFloatLayout:
+        pos_hint:{'center_x':.5,'center_y':.5}
+        size_hint:.8,None
+        height:dp(230)
+        md_bg_color:hex('#FFFFFF')
+        MDLabel:
+            size_hint_y:None
+            height:dp(60)
+            text:'Add message'
+            halign:'center'
+            pos_hint:{'top':1,'center_x':.5}
+            theme_text_color:'Hint'
+            font_style:'H6'
+
+        MDTextField:
+            id:user_msg
+            size_hint_x:.9
+            pos_hint:{'center_x':.5,'center_y':.6}
+            hint_text:'user message'
+
+        MDTextField:
+            id:bot_reply
+            size_hint_x:.9
+            pos_hint:{'center_x':.5,'center_y':.4}
+            hint_text:'bot reply message'
+
+        MDBoxLayout:
+            adaptive_height:True
+            adaptive_width:True
+            padding:dp(5)
+            pos_hint:{'right':1,'y':0}
+
+            MDRaisedButton:
+                text:'add'
+                on_release:
+                    toast('Done')
+                    root.dismiss()
+                    user_msg.text = ''
+                    bot_reply.text = ''
+
+            MDFlatButton:
+                text:'cancel'
+                text_color:1,0,0,1
+                on_release:
+                    root.dismiss()
+                    user_msg.text = ''
+                    bot_reply.text = ''

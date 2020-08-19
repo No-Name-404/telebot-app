@@ -1,17 +1,12 @@
 from kivymd.app import MDApp
-from backend.bot import BotApi
-from kivy.uix.button import Button
-from backend.login import LoginScreen
-from kivy.lang import Builder
-
-Builder.load_file('frontend/LoginScreen.kv')
+from app.backend.bot import BotApi
+from app.libs import *
 
 class telebot(MDApp):
     def build(self):
-        return LoginScreen()
-
-    # def press(self,widget):
-    #     widget.text = 'is run'
-    #     BotApi().run()
+        self.sm = ScreenManager()
+        self.sm.add_widget(MenuScreen(name='menu'))
+        self.sm.add_widget(LoginScreen(name='login'))
+        return self.sm
 
 telebot().run()

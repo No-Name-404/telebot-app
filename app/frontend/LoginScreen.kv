@@ -10,7 +10,7 @@
             md_bg_color:hex('#FFFFFF')
             pos_hint:{'top':.9}
             Image:
-                source:'/home/mohamed/telebot-app/images/bot.png'
+                source:'app/images/bot.png'
 
         MDFloatLayout:
             size_hint_y:.55
@@ -34,7 +34,8 @@
                 MDRaisedButton:
                     text: "Login"
                     on_release:
-                        print(token.text)
+                        root.manager.current = 'menu'
+
 
                 MDRaisedButton:
                     text: "Sign in"
