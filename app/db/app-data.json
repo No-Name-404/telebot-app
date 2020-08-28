@@ -1,0 +1,34 @@
+{
+    "bot": {
+        "token": null
+    },
+    "settings": {
+        "language": "ar"
+    },
+    "language": {
+        "ar": {
+            "sign in": "\u0625\u0646\u0634\u0627\u0621 \u0628\u0648\u062a",
+            "login": "\u062a\u0633\u062c\u064a\u0644 \u0627\u0644\u062f\u062e\u0648\u0644",
+            "messages": "\u0627\u0644\u0631\u0633\u0627\u0626\u0644",
+            "add message": "\u0625\u0636\u0627\u0641\u0629 \u0631\u0633\u0627\u0644\u0629",
+            "add": "\u0625\u0636\u0627\u0641\u0629",
+            "cancel": "\u0625\u0644\u063a\u0627\u0621",
+            "is already in use": "\u0642\u064a\u062f \u0627\u0644\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0628\u0627\u0644\u0641\u0639\u0644",
+            "delete": "\u062d\u0630\u0641",
+            "skip":"تخطى",
+            "done": "\u062a\u0645"
+        },
+        "en": {
+            "sign in": "Sign in",
+            "login": "Login",
+            "messages": "Messages",
+            "add message": "Add message",
+            "add": "add",
+            "cancel": "cancel",
+            "is already in use": "is already in use",
+            "delete": "delete",
+            "skip":"Skip",
+            "done": "Done"
+        }
+    }
+}

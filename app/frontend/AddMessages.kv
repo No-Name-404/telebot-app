@@ -9,26 +9,29 @@
         size_hint:.8,None
         height:dp(230)
         md_bg_color:hex('#FFFFFF')
+        radius:[dp(10)]
         MDLabel:
             size_hint_y:None
             height:dp(60)
-            text:'Add message'
+            text:app.ar(app.language['add message'])
             halign:'center'
             pos_hint:{'top':1,'center_x':.5}
             theme_text_color:'Hint'
-            font_style:'H6'
+            font_name:app.font
 
         MDTextField:
             id:user_msg
             size_hint_x:.9
             pos_hint:{'center_x':.5,'center_y':.6}
             hint_text:'user message'
+            font_name:app.font
 
         MDTextField:
             id:bot_reply
             size_hint_x:.9
             pos_hint:{'center_x':.5,'center_y':.4}
             hint_text:'bot reply message'
+            font_name:app.font
 
         MDBoxLayout:
             adaptive_height:True
@@ -37,17 +40,20 @@
             pos_hint:{'right':1,'y':0}
 
             MDRaisedButton:
-                text:'add'
+                text:app.ar(app.language['add'])
+                font_name:app.font
                 on_release:
-                    toast('Done')
+                    root.callback(self.text, user_msg.text, bot_reply.text)
                     root.dismiss()
                     user_msg.text = ''
                     bot_reply.text = ''
 
             MDFlatButton:
-                text:'cancel'
+                text:app.ar(app.language['cancel'])
+                font_name:app.font
                 text_color:1,0,0,1
                 on_release:
+                    root.callback(self.text, user_msg.text, bot_reply.text)
                     root.dismiss()
                     user_msg.text = ''
                     bot_reply.text = ''

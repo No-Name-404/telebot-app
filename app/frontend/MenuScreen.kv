@@ -1,72 +1,91 @@
 #:import hex kivy.utils.get_color_from_hex
-
 <MenuScreen>:
     MDFloatLayout:
         md_bg_color:hex('#FFFFFF')
         MDFloatLayout:
             pos_hint:{'top':1}
-            size_hint_y:.3
+            size_hint_y:.4
+            Start:
+                reply:reply
+                image:image
+                audio:audio
+                all:all
+
             MDBoxLayout:
-                orientation:'vertical'
-                pos_hint:{'top':1}
-
-                MDFloatLayout:
-                    MDLabel:
+                pos_hint:{'y':.05}
+                size_hint_y:None
+                height:dp(50)
+                MDFloatLayout: # reply
+                    MDIcon:
                         halign:'center'
-                        pos_hint:{'center_x':.5,'center_y':.5}
-                        text:'Messages'
-                        theme_text_color:'Custom'
-                        text_color:0,1,0,1
-                        font_style:'H5'
+                        pos_hint:{'center_x':.5,'top':1}
+                        icon:'reply'
                     MDLabel:
+                        id:reply
                         halign:'center'
-                        pos_hint:{'center_x':.5,'center_y':.2}
+                        pos_hint:{'center_x':.5,'center_y':0}
                         text:'0'
-                        theme_text_color:'Custom'
-                        text_color:0,1,0,1
-                        font_style:'H6'
+                        theme_text_color:'Hint'
+                        font_style:'Body1'
 
-                MDBoxLayout:
-                    MDFloatLayout:
-                        MDLabel:
+                MDFloatLayout: # messages image
+                    MDIcon:
+                        halign:'center'
+                        pos_hint:{'center_x':.5,'top':1}
+                        icon:'message-image'
+                    MDLabel:
+                        id:image
+                        halign:'center'
+                        pos_hint:{'center_x':.5,'center_y':0}
+                        text:'0'
+                        theme_text_color:'Hint'
+                        font_style:'Body1'
 
-                            halign:'center'
-                            pos_hint:{'center_x':.5,'center_y':.6}
-                            text:'send'
-                            theme_text_color:'Custom'
-                            text_color:0,1,0,1
-                            font_style:'H6'
+                MDFloatLayout: # microphone messages
+                    MDIcon:
+                        halign:'center'
+                        pos_hint:{'center_x':.5,'top':1}
+                        icon:'microphone'
+                    MDLabel:
+                        id:audio
+                        halign:'center'
+                        pos_hint:{'center_x':.5,'center_y':0}
+                        text:'0'
+                        theme_text_color:'Hint'
+                        font_style:'Body1'
 
-                        MDLabel:
-                            halign:'center'
-                            pos_hint:{'center_x':.5,'center_y':.38}
-                            text:'0'
-                            theme_text_color:'Hint'
-                            font_style:'Body1'
+                MDFloatLayout: # all messages
+                    MDIcon:
+                        halign:'center'
+                        pos_hint:{'center_x':.5,'top':1}
+                        icon:'comment-text-multiple'
+                    MDLabel:
+                        id:all
+                        halign:'center'
+                        pos_hint:{'center_x':.5,'center_y':0}
+                        text:'0'
+                        theme_text_color:'Hint'
+                        font_style:'Body1'
 
-                    MDFloatLayout:
-                        MDLabel:
-                            halign:'center'
-                            pos_hint:{'center_x':.5,'center_y':.6}
-                            text:'unknow'
-                            theme_text_color:'Custom'
-                            text_color:1,0,0,1
-                            font_style:'H6'
-                        MDLabel:
-                            halign:'center'
-                            pos_hint:{'center_x':.5,'center_y':.38}
-                            text:'0'
-                            theme_text_color:'Hint'
-                            font_style:'Body1'
-
-        MDFloatLayout:
-            size_hint_y:.7
+        MDBoxLayout:
+            size_hint_y:.6
             md_bg_color:hex('#35ACE1')
-            radius:dp(40),dp(40),0,0
+            radius:dp(20),dp(20),0,0
+            orientation:'vertical'
+            MDBoxLayout:
+                size_hint_y:None
+                height:dp(40)
+                MDLabel:
+                    text:app.ar(app.language['messages'])
+                    halign:'center'
+                    font_name:app.font
+                    theme_text_color:'Custom'
+                    text_color:1,1,1,1
             ScrollView:
                 pos_hint:{'top':1}
                 MDGridLayout:
                     cols:1
+                    spacing:dp(6)
                     adaptive_height: True
                     id:messages
 

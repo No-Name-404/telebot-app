@@ -1,0 +1,70 @@
+#:import toast kivymd.toast.toast
+#:import hex kivy.utils.get_color_from_hex
+<SwipeToDeleteItem>:
+    size_hint_y: None
+    height:dp(48)
+    swipe_distance:dp(200)
+    max_opened_x:dp(45)
+
+    MDCardSwipeLayerBox:
+        canvas:
+            Color:
+                rgba:hex('#35ACE1')
+            Rectangle:
+                pos:self.pos
+                size:self.size
+
+        MDIconButton:
+            icon: "trash-can"
+            pos_hint: {"center_y": .5}
+            on_release:
+                root.delete(root)
+                toast(app.language['delete'])
+            theme_text_color:'Custom'
+            text_color:1,0,0,1
+
+    MDCardSwipeFrontBox:
+        md_bg_color:0,0,0,0
+        elevation:2
+        padding:dp(3),0,dp(3),0
+        MDFloatLayout:
+            md_bg_color:hex('#248CC3')
+            radius:[dp(10)]
+            MDBoxLayout:
+                size_hint:None,None
+                size:dp(30),dp(10)
+                pos_hint:{'top':1,'x':0}
+                MDLabel:
+                    font_size:sp(13)
+                    text:'usr:'
+                    halign:'center'
+                    theme_text_color:'Secondary'
+                    font_name:app.font
+
+            MDBoxLayout:
+                size_hint:None,None
+                size:dp(30),dp(10)
+                pos_hint:{'top':.95,'x':.5}
+                MDLabel:
+                    font_size:sp(13)
+                    text:'bot:'
+                    halign:'center'
+                    theme_text_color:'Secondary'
+                    font_name:app.font
+
+            MDBoxLayout:
+                pos_hint:{'x':0}
+                MDBoxLayout:
+                    padding:dp(2),0,0,0
+                    MDLabel:
+                        text: app.ar(root.send)
+                        font_name:app.font
+                        shorten: True
+                        shorten_from: 'right'
+                MDBoxLayout:
+                    padding:dp(2),0,0,0
+                    MDLabel:
+                        text: app.ar(root.reply)
+                        font_name:app.font
+                        shorten: True
+                        shorten_from: 'right'
